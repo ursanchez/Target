@@ -1,0 +1,96 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+      //  jcenter()
+    }
+    ext {
+        serenityVersion = '2.1.2'
+        serenityCucumberVersion = '1.9.50'
+    }
+
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:$rootProject.ext.serenityVersion")
+    }
+}
+
+/*plugins {
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+}*/
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+//apply plugin: 'net.serenity-bdd.aggregator'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+ //   jcenter()
+}
+
+dependencies {
+
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-core', version: '2.4.25'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '2.4.25'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-screenplay', version: '2.4.25'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-screenplay-webdriver', version: '2.4.24'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '1.9.51'
+
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '2.4.25'
+    implementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '2.4.25'
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay', version: '2.4.25'
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-webdriver', version: '2.4.24'
+    //implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '1.9.51'
+    implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '1.9.50'
+
+
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.19.0'
+
+    implementation group: 'junit', name: 'junit', version: '4.13.2'
+    implementation group: 'org.assertj', name: 'assertj-core', version: '3.19.0'
+
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+
+    testImplementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    implementation group: 'junit', name: 'junit', version: '4.13.2'
+
+
+}
+
+gradle.startParameter.continueOnFailure = true
+
+/*
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+ */
